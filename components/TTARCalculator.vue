@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <b-jumbotron
+    <b-jumbotron header-level="5"
       header="TTAR Calculator">      
     </b-jumbotron>
     <div class="form-group row">
@@ -33,10 +33,10 @@
     <div class="form-group row">
       <div class="col-form-label col-3">New rating</div>
       <div class="col">
-        <input class="form-control" type="text" :value="steps.length > 1 ? lastStep.rating1 + ' [' + signedNumber(rating1 - lastStep.rating1) + ']' : ''" readonly />
+        <input class="form-control" type="text" :value="steps.length > 1 ? lastStep.rating1 + ' [' + signedNumber(lastStep.rating1 - rating1) + ']' : ''" readonly />
       </div>
       <div class="col">
-        <input class="form-control" type="text" :value="steps.length > 1 ? lastStep.rating2 + ' [' + signedNumber(rating2 - lastStep.rating2) + ']' : ''" readonly />
+        <input class="form-control" type="text" :value="steps.length > 1 ? lastStep.rating2 + ' [' + signedNumber(lastStep.rating2 - rating2) + ']' : ''" readonly />
       </div>
     </div>
     <div v-for="(step,index) in steps" class="form-group row d-none">
@@ -94,7 +94,8 @@ export default {
   },
   computed: {
     steps: function() {
-      if (!this.rating1 || !this.rating2 || !this.score1 || !this.score2) {
+      if (!Number.isInteger(this.rating1) || !Number.isInteger(this.rating2) ||
+          !Number.isInteger(this.score1) || !Number.isInteger(this.score2)) {
         return [];
       }
       let data = {
