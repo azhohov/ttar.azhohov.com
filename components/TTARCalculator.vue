@@ -30,7 +30,7 @@
         <input class="form-control" type="checkbox" placeholder="score 2" v-model.boolean="qualification2" />
       </div>
     </div>
-    <div class="form-row row">
+    <div class="form-row row mb-2">
       <div class="col-form-label col-3">New&nbsp;rating</div>
       <div class="col">
         <input class="form-control" type="text" :value="steps.length > 1 ? lastStep.rating1 + ' [' + signedNumber(lastStep.rating1 - rating1) + ']' : ''" readonly />
