@@ -3,7 +3,7 @@
     <b-jumbotron header-level="5"
       header="TTAR Calculator">      
     </b-jumbotron>
-    <div class="form-group row">
+    <div class="form-row row mb-2">
       <div class="col-form-label col-3">Rating</div>
       <div class="col">
         <input class="form-control" type="text" placeholder="rating 1" v-model.number="rating1" />
@@ -12,7 +12,7 @@
         <input class="form-control" type="text" placeholder="rating 2" v-model.number="rating2" />
       </div>
     </div>
-    <div class="form-group row">
+    <div class="form-row row mb-2">
       <div class="col-form-label col-3">Score</div>
       <div class="col">
         <input class="form-control" type="text" placeholder="score 1" v-model.number="score1" />
@@ -30,8 +30,8 @@
         <input class="form-control" type="checkbox" placeholder="score 2" v-model.boolean="qualification2" />
       </div>
     </div>
-    <div class="form-group row">
-      <div class="col-form-label col-3">New rating</div>
+    <div class="form-row row">
+      <div class="col-form-label col-3">New&nbsp;rating</div>
       <div class="col">
         <input class="form-control" type="text" :value="steps.length > 1 ? lastStep.rating1 + ' [' + signedNumber(lastStep.rating1 - rating1) + ']' : ''" readonly />
       </div>
